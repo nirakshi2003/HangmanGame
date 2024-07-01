@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Hangman Game</title>
+        <link rel="stylesheet" href="style.css">
+        <script src="wordlist.js" defer></script>
+        <script src="script.js" defer></script>
+    </head>
+    <body>
+        <div class="game-modal">
+            <div class="content">
+                <img src="images/lost.gif" alt="gif">
+                <h4>Game Over!</h4>
+                <p>The correct word was : <b>criminallove</b></p>
+                <button class="play-again">Play Again</button>
+            </div>
+        </div>
+
+        <div class="container">
+            <div class="hangman-box">
+                <img src="images/hangman-0.svg" alt="hangman-img">
+                <h1>Hangman Game</h1>
+                <details class="instructions">
+                    <summary>Instructions</summary>
+                    <p>Guess the hidden word one letter at a time. With only 6 lives, each incorrect guess brings you closer to the gallows!</p>
+                </details>
+            </div>
+
+            <div class="game-box">
+                <ul class="word-display"></ul>
+                <h4 class="hint-text">
+                    Hint:
+                    <b>you say good night, meet me next life, but i'm yours tonight</b>
+                </h4>
+                <h4 class="guesses-text">
+                    Incorrect Guesses:
+                    <b>0/6</b>
+                </h4>
+                <div class="keyboard"></div>
+            </div>
+        </div>
+    </body>
+</html>
