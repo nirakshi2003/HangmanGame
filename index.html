@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en"> <!-- Declare the document type and language -->
+    <head>
+        <meta charset="UTF-8">                                                  <!-- Set the character encoding to UTF-8 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">  <!-- Set the viewport for responsive design -->
+        <title>Hangman Game</title>                                             <!-- Set the title of the document -->
+        <link rel="stylesheet" href="style.css">                                <!-- Link to the external CSS file for styling -->
+        <script src="wordlist.js" defer></script>                               <!-- Link to the external JavaScript file containing the word list, loaded defer -->
+        <script src="script.js" defer></script>                                 <!-- Link to the external JavaScript file containing the game logic, loaded defer -->
+    </head>
+    <body>
+        <!-- Game Over or Victory Modal -->
+        <div class="game-modal">
+            <div class="content">
+                <img src="images/lost.gif" alt="gif">               <!-- GIF displayed in the modal -->
+                <h4>Game Over!</h4>                                 <!-- Modal heading -->
+                <p>The correct word was : <b>criminallove</b></p>   <!-- Modal message showing the correct word -->
+                <button class="play-again">Play Again</button>      <!-- Button to restart the game -->
+            </div>
+        </div>
+
+        <!-- Main Game Container -->
+        <div class="container">
+            <!-- Hangman Box containing the image and instructions -->
+            <div class="hangman-box">
+                <img src="images/hangman-0.svg" alt="hangman-img">  <!-- Initial hangman image -->
+                <h1>Hangman Game</h1>                               <!-- Game title -->
+                <details class="instructions">                      <!-- Instructions section -->
+                    <summary>How to Play?</summary>
+                    <p>Guess the hidden word one letter at a time. With only 6 lives, each incorrect guess brings you closer to the gallows!</p>
+                </details>
+            </div>
+
+            <!-- Game Box containing the word display, hint, guesses, and keyboard -->
+            <div class="game-box">
+                <ul class="word-display"></ul>                      <!-- List to display the current word with underscores and guessed letters -->
+                <h4 class="hint-text">                              <!-- Placeholder hint text -->
+                    Hint:
+                    <b>you say good night, meet me next life, but i'm yours tonight</b> 
+                </h4>
+                <h4 class="guesses-text">
+                    Incorrect Guesses:
+                    <b>0/6</b>                                      <!-- Initial incorrect guesses count -->
+                </h4>
+                <div class="keyboard"></div>                        <!-- Container for the on-screen keyboard buttons -->
+            </div>
+        </div>
+    </body>
+</html>

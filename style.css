@@ -1,0 +1,208 @@
+@import url('https://fonts.googleapis.com/css2?family=Playwrite+DE+Grund:wght@100..400&display=swap');
+
+/* global styles */
+* { 
+    margin: 0;                                  /* remove default margin */
+    padding: 0;                                 /* remove default padding */
+    box-sizing: border-box;                     /* include padding and border in element's total width and height */
+    font-family: "Playwrite DE Grund", cursive; /* set custom font */
+}
+
+body {
+    display: flex;              /* use flexbox layout */
+    align-items: center;        /* center align items vertically */
+    padding: 0 10px;            /* add horizontal padding */
+    justify-content: center;    /* center align items horizontally */
+    min-height: 100vh;          /* set minimum height to full viewport height */
+    background: #ffe4f1;      /* set background color */
+}
+
+/* game container styles */
+.container {
+    width: 850px;            /* set container width */
+    background: #ffffff;   /* set background color */
+    display: flex;           /* use flexbox layout */
+    gap: 70px;               /* set gap between child elements */
+    align-items: flex-end;   /* align items to the end of the container */
+    padding: 60px 40px;      /* add padding */
+    border-radius: 10px;     /* round corners */
+}
+
+.container h1 {
+    font-size: 1.4rem;      /* set font size for the game title */
+}
+
+/* Hangman Box Styles */
+.hangman-box img {
+    max-width: 270px;       /* set maximum width for the hangman image */
+}
+
+.hangman-box {              /* the image and the intruction */
+    font-size: 1.2rem;      /* set font size */
+    margin-top: 20px;       /* add top margin */
+    text-align: center;     /* center align text */
+}
+
+.hangman-box h1 {               /* the game heading*/
+    text-transform: uppercase;  /* uppercase text */
+}
+
+/* styles for the underscores*/
+.word-display {
+    display: flex;              /* use flexbox layout */
+    list-style: none;           /* remove list styling */
+    gap: 10px;                  /* set gap between items */
+    align-items: center;        /* center align items vertically */
+    justify-content: center;    /* center align items horizontally */
+}
+
+.word-display .letter {                 /* for the alphabets of the keyboard */
+    width: 28px;                        /* set width */
+    font-size: 2rem;                    /* set font size */
+    font-weight: 600;                   /* set font weight */
+    text-transform: uppercase;          /* uppercase text */
+    text-align: center;                 /* center align text */
+    margin-bottom: 40px;                /* add bottom margin */
+    border-bottom: 3px solid #000;    /* add bottom border */
+}
+
+.word-display .letter.guesses { /* for guessed letters */
+    border-color: transparent;  /* make border transparent */
+    margin: -40px 0 35px;       /* adjust margin */
+}
+
+/* game box styles for the hint and incorrect guess text */
+.game-box h4 {
+    text-align: center;     /* center align text */
+    font-size: 1.1rem;      /* set font size */
+    font-weight: 500;       /* set font weight */
+    margin-bottom: 15px;    /* add bottom margin */
+}
+
+.game-box h4 b {      /* hint text */
+    font-weight: 600; /* set font weight for bold text */
+}
+
+.game-box .guesses-text b { /* incorrect guess text */
+    color: #1B10B9;       /* set text color */
+}
+
+.game-box .keyboard {
+    display: flex;              /* use flexbox layout */
+    flex-wrap: wrap;            /* allow items to wrap to the next line */
+    justify-content: center;    /* center align items horizontally */
+    gap: 5px;                   /* set gap between items */
+    margin-top: 40px;           /* add top margin */
+}
+
+.keyboard button[disabled] {    /* when a keyboard button is already pressed */
+    opacity: 0.6;               /* reduce opacity */
+    pointer-events: none;       /* disable pointer events */
+}
+
+/* button styles */
+:where(.game-modal, .keyboard) button { /* keyboard buttons and play again button */
+    color: #FFF;                  /* set text color */
+    font-size: 1rem;                /* set font size */
+    font-weight: 600;               /* set font weight */
+    border: none;                   /* remove border */
+    cursor: pointer;                /* set cursor to pointer */
+    outline: none;                  /* remove outline */
+    background: #F12D92;          /* set background color */
+    border-radius: 4px;             /* round corners */
+    text-transform: uppercase;      /* uppercase text */
+}
+
+.keyboard button {
+    width: calc(100% / 9 - 5px); /* set width to fit 9 buttons per row with gaps */
+    padding: 7px;                /* add padding */
+}
+
+:where(.game-modal, .keyboard) button:hover {
+    background: #F670B5; /* change background color on hover */
+}
+
+/* game modal styles */
+.game-modal {
+    position: fixed;                    /* fixed position */
+    left: 0;                            /* align to the left */
+    top: 0;                             /* align to the top */
+    width: 100%;                        /* full width */
+    height: 100%;                       /* full height */
+    opacity: 0;                         /* initial opacity */
+    padding: 0 10px;                    /* add horizontal padding */
+    pointer-events: none;               /* disable pointer events */
+    z-index: 999;                       /* high z-index to appear above other elements */
+    display: flex;                      /* use flexbox layout */
+    align-items: center;                /* center align items vertically */
+    justify-content: center;            /* center align items horizontally */
+    background: rgba(0, 0, 0, 0.6);   /* set background color with transparency */
+    transition: opacity 0.4s ease;      /* transition for opacity change */
+}
+
+.game-modal.show {
+    opacity: 1;             /* fully opaque when shown */
+    pointer-events: auto;   /* enable pointer events */
+}
+
+.game-modal .content {
+    background: #FFF;         /* set background color */
+    max-width: 420px;           /* set maximum width */
+    width: 100%;                /* full width */
+    text-align: center;         /* center align text */
+    border-radius: 10px;        /* round corners */
+    padding: 30px;              /* add padding */
+}
+
+.game-modal img {     /* the gifs */
+    max-width: 130px; /* set maximum width for the image */
+}
+
+.game-modal h4 {        /* victory or lost text */
+    font-size: 1.53rem; /* Set font size */
+}
+
+.game-modal p {             /* the correct word text */
+    font-size: 1.15rem;     /* set font size */
+    margin: 15px 0 30px;    /* add vertical margin */
+    font-weight: 500;       /* set font weight */
+}
+
+.game-modal p b {     /* the correct word */
+    color: #F12D92; /* set text color */
+    font-weight: 600; /* set font weight */
+}
+
+.game-modal button {    /* play again button */
+    padding: 12px 23px; /* add padding */
+}
+
+/* instructions Styles */
+.instructions summary {
+    text-transform: capitalize; /* capitalize text */
+    cursor: pointer;            /* set cursor to pointer */
+    color: #1B10B9;           /* set text color */
+    font-weight: 600;           /* set font weight */
+    font-size: 1.1rem;          /* set font size */
+}
+
+.instructions p {
+    font-size: 0.87rem; /* set font size */
+}
+
+/* responsive Styles */
+@media (max-width: 780px) {
+    .container {
+        flex-direction: column; /* stack items vertically */
+        padding: 30px 15px;     /* adjust padding */
+        align-items: center;    /* center align items horizontally */
+    }
+
+    .hangman-box img {
+        max-width: 200px; /* set maximum width for the image */
+    }
+
+    .hangman-box h1 {
+        display: none; /* hide game title */
+    }
+}
