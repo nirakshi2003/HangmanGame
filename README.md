@@ -19,3 +19,6 @@ Welcome to my Hangman game! This is a classic word-guessing game built using HTM
 - Incorrect guesses will be counted, and parts of the hangman figure will be drawn.
 - The game ends when you either guess the word correctly or run out of guesses.
 - Click "Play Again" to start a new game.
+
+## Play the game here :
+https://nirakshi2003.github.io/HangmanGame/
